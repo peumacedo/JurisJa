@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Triagem Jurídica – Caso Ágil</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Variáveis de cor */
+    :root {
+      --cor-primaria: #083B4C;      /* Azul-petróleo */
+      --cor-secundaria: #F28C38;    /* Laranja suave */
+      --cinza-claro: #F5F5F5;
+      --cinza-input: #E0E0E0;
+      --texto-escuro: #333333;
+      --cinza-medio: #555555;
+    }
+
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth; /* Scroll suave */
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--cinza-claro);
+      color: var(--texto-escuro);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout principal */
+    header, section, footer {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    /* Header/Hero */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #FFFFFF;
+      padding: 40px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin-top: 20px;
+    }
+
+    .logo-img {
+      height: 60px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem; /* 32px */
+      color: var(--cor-primaria);
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 1.125rem; /* 18px */
+      color: var(--cinza-medio);
+      margin-bottom: 24px;
+    }
+
+    .btn-primary {
+      background-color: var(--cor-secundaria);
+      color: #FFFFFF;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .btn-primary:hover {
+      background-color: #e2762f;
+    }
+
+    /* Seção "Como Funciona" */
+    .como-funciona {
+      margin-top: 40px;
+      background-color: #FFFFFF;
+      padding: 30px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .como-funciona h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.75rem; /* 28px */
+      color: var(--cor-primaria);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .step img {
+      width: 48px;
+      height: 48px;
+    }
+    .step h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.25rem; /* 20px */
+      color: var(--texto-escuro);
+      margin-bottom: 6px;
+    }
+    .step p {
+      font-size: 1rem; /* 16px */
+      color: var(--cinza-medio);
+    }
+
+    /* Seção "Chat de Triagem" */
+    .chat-embed {
+      margin-top: 40px;
+      background-color: #FFFFFF;
+      padding: 30px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .chat-embed h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.75rem; /* 28px */
+      color: var(--cor-primaria);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .chat-container {
+      border: 1px solid var(--cinza-input);
+      border-radius: 8px;
+      overflow: hidden;
+      height: 650px;
+    }
+
+    /* Seção FAQ */
+    .faq {
+      margin-top: 40px;
+      background-color: #FFFFFF;
+      padding: 30px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .faq h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.75rem; /* 28px */
+      color: var(--cor-primaria);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .faq dl {
+      margin-top: 20px;
+    }
+    .faq dt {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.125rem; /* 18px */
+      color: var(--texto-escuro);
+      margin-top: 16px;
+    }
+    .faq dd {
+      font-size: 1rem; /* 16px */
+      color: var(--cinza-medio);
+      margin-left: 0;
+      margin-top: 4px;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 60px;
+      padding: 20px 0;
+      text-align: center;
+      background-color: #FFFFFF;
+      border-top: 1px solid var(--cinza-input);
+    }
+    .footer p {
+      font-size: 0.875rem; /* 14px */
+      color: var(--cinza-medio);
+      margin-bottom: 8px;
+    }
+    .footer a {
+      color: var(--cor-primaria);
+      font-weight: 700;
+      margin: 0 8px;
+      font-size: 0.875rem;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsividade */
+    @media (min-width: 600px) {
+      .steps {
+        flex-direction: row;
+      }
+      .step {
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero / Header -->
+  <header class="hero">
+    <!-- Coloque o arquivo logo.png na mesma pasta deste HTML -->
+    <img src="logo.png" alt="Caso Ágil" class="logo-img" />
+
+    <h1>Relate seu caso em minutos</h1>
+    <p>Um advogado entrará em contato com você em breve para analisar seu relato.</p>
+    <a href="#triagem"><button class="btn-primary">Iniciar Triagem</button></a>
+  </header>
+
+  <!-- Como Funciona -->
+  <section class="como-funciona">
+    <h2>Como Funciona</h2>
+    <div class="steps">
+      <div class="step">
+        <img src="icon-perguntas.svg" alt="Perguntas">
+        <div>
+          <h3>1. Responda à nossa triagem</h3>
+          <p>Nos conte da forma que se sentir mais confortável, do jeito que quiser.</p>
+        </div>
+      </div>
+      <div class="step">
+        <img src="icon-relato.svg" alt="Relato">
+        <div>
+          <h3>2. Montamos seu relato</h3>
+          <p>Nosso assistente gera um texto claro e completo sobre seu caso.</p>
+        </div>
+      </div>
+      <div class="step">
+        <img src="icon-advogado.svg" alt="Advogado">
+        <div>
+          <h3>3. Advogado entra em contato</h3>
+          <p>O sistema envia automaticamente a um advogado, que entrará em contato com você.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chat de Triagem -->
+  <section id="triagem" class="chat-embed">
+    <h2>Chat de Triagem</h2>
+    <p style="text-align:center; color: var(--cinza-medio); margin-bottom: 12px;">
+      Na próxima etapa, nosso assistente fará perguntas para entender seu caso. Tudo é 100% confidencial.
+    </p>
+    <div class="chat-container">
+      <!-- EMBED DO CHATVOLT -->
+      <script type="module">
+        import Chatbox from 'https://cdn.jsdelivr.net/npm/@chatvolt/embeds@latest/dist/chatbox/index.js';
+
+        Chatbox.initStandard({
+          agentId: 'cmb5imejh07mxd59xb31flmg3',
+          interface: {
+            initialMessages: [
+              'Olá! Conte seu caso. Ao final, nosso advogado entrará em contato com você.'
+            ]
+          }
+        });
+      </script>
+      <chatvolt-chatbox-standard style="width: 100%; height: 100%;"></chatvolt-chatbox-standard>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <h2>Perguntas Frequentes</h2>
+    <dl>
+      <dt>Quanto tempo leva para o advogado entrar em contato?</dt>
+      <dd>Em geral, nossos parceiros entram em contato em até 24 horas úteis após o preenchimento da triagem.</dd>
+
+      <dt>Meus dados realmente ficam protegidos?</dt>
+      <dd>Sim: todos os dados são criptografados e tratamos suas informações em conformidade com a LGPD.</dd>
+
+      <dt>Que tipos de casos de consumo atendemos?</dt>
+      <dd>Atendemos reclamações envolvendo fornecedores de produtos, serviços atrasados, cobranças indevidas, entre outros conflitos de consumo.</dd>
+
+      <dt>Posso editar meu relato depois?</dt>
+      <dd>Sim. Enquanto não for finalizado, você pode voltar ao chat e ajustar ou complementar as informações.</dd>
+    </dl>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Caso Ágil | <a href="mailto:contato@seudominio.com">contato@seudominio.com</a></p>
+    <p>Seus dados são criptografados e tratados em conformidade com a LGPD.</p>
+    <div>
+      <a href="#">Política de Privacidade</a>
+      <a href="#">Termos de Uso</a>
+    </div>
+  </footer>
+
+</body>
+</html>
