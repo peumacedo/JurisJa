@@ -4,6 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Triagem Jurídica – Caso Ágil</title>
+  <meta name="description" content="Conte seu caso de consumo e receba ajuda de um advogado. Triagem gratuita e 100% confidencial.">
+  <meta property="og:title" content="Caso Ágil – Triagem Jurídica Online"/>
+  <meta property="og:description" content="Fale com nosso assistente e receba um relato para análise de advogado. Gratuito e seguro."/>
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
@@ -63,16 +73,24 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       background-color: #FFFFFF;
       padding: 40px 20px;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       margin-top: 20px;
+      min-height: calc(100vh - 40px);
     }
 
     .logo-img {
       height: 60px;
       margin-bottom: 16px;
+    }
+    @media (max-width: 600px) {
+      .logo-img {
+        max-width: 80%;
+        height: auto;
+      }
     }
 
     .hero h1 {
@@ -162,7 +180,15 @@
       border: 1px solid var(--cinza-input);
       border-radius: 8px;
       overflow: auto;
-      height: 650px;
+      min-height: 650px;
+      height: 100%;
+    }
+
+    .disclaimer {
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--cinza-medio);
+      margin-top: 12px;
     }
 
     /* Seção FAQ */
@@ -234,12 +260,11 @@
 
   <!-- Hero / Header -->
   <header class="hero">
-    <!-- Coloque o arquivo logo.png na mesma pasta deste HTML -->
-    <img src="logo.png" alt="Caso Ágil" class="logo-img" />
+    <img src="logo.svg" alt="Relato Fácil" class="logo-img" loading="lazy" />
 
-    <h1>Relate seu caso em minutos</h1>
-    <p>Um advogado entrará em contato com você em breve para analisar seu relato.</p>
-    <a href="#triagem"><button class="btn-primary">Iniciar Triagem</button></a>
+    <h1>Relate seu problema de consumo em minutos.</h1>
+    <p>Converse com nosso assistente e receba um relato estruturado. Um advogado entrará em contato em até 24h úteis.</p>
+    <a href="#triagem" class="btn-primary">Iniciar Triagem</a>
   </header>
 
   <!-- Como Funciona -->
@@ -247,28 +272,25 @@
     <h2>Como Funciona</h2>
     <div class="steps">
       <div class="step">
-        <img src="icon-perguntas.svg" alt="Perguntas">
+        <img src="icon-perguntas.svg" alt="Perguntas" loading="lazy">
         <div>
-          <h3>1. Responda à nossa triagem</h3>
-          <p>Nos conte da forma que se sentir mais confortável, do jeito que quiser.</p>
+          <h3>1. Você responde a perguntas simples.</h3>
         </div>
       </div>
       <div class="step">
-        <img src="icon-relato.svg" alt="Relato">
+        <img src="icon-relato.svg" alt="Relato" loading="lazy">
         <div>
-          <h3>2. Montamos seu relato</h3>
-          <p>Nosso assistente gera um texto claro e completo sobre seu caso.</p>
+          <h3>2. A IA monta seu relato completo.</h3>
         </div>
       </div>
       <div class="step">
-        <img src="icon-advogado.svg" alt="Advogado">
+        <img src="icon-advogado.svg" alt="Advogado" loading="lazy">
         <div>
-          <h3>3. Advogado entra em contato</h3>
-          <p>O sistema envia automaticamente a um advogado, que entrará em contato com você.</p>
+          <h3>3. Um advogado da nossa equipe entra em contato.</h3>
         </div>
       </div>
-    </div>
-  </section>
+      </div>
+    </section>
 
   <!-- Chat de Triagem -->
   <section id="triagem" class="chat-embed">
@@ -278,7 +300,7 @@
     </p>
     <div class="chat-container">
       <!-- EMBED DO CHATVOLT -->
-      <script type="module">
+      <script type="module" async>
         import Chatbox from 'https://cdn.jsdelivr.net/npm/@chatvolt/embeds@latest/dist/chatbox/index.js';
 
         Chatbox.initStandard({
@@ -291,7 +313,11 @@
         });
       </script>
       <chatvolt-chatbox-standard style="width: 100%; height: 100%; display: block; overflow-y: auto; scroll-behavior: smooth;"></chatvolt-chatbox-standard>
+      <noscript>
+        <p style="text-align:center;">Ative o JavaScript ou <a href="mailto:contato@relatofacil.com.br">entre em contato conosco</a>.</p>
+      </noscript>
     </div>
+    <p class="disclaimer">Versão de teste. Seu relato será analisado por um advogado antes de qualquer ação. Dados protegidos conforme LGPD.</p>
   </section>
 
   <!-- FAQ -->
@@ -314,11 +340,10 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <p>© 2025 Caso Ágil | <a href="mailto:contato@seudominio.com">contato@seudominio.com</a></p>
-    <p>Seus dados são criptografados e tratados em conformidade com a LGPD.</p>
+    <p>© 2025 Relato Fácil | <a href="mailto:contato@relatofacil.com.br">contato@relatofacil.com.br</a></p>
     <div>
-      <a href="#">Política de Privacidade</a>
-      <a href="#">Termos de Uso</a>
+      <a href="#" target="_blank">Política de Privacidade</a>
+      <a href="#" target="_blank">Termos de Uso</a>
     </div>
   </footer>
 
